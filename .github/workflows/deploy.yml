@@ -40,6 +40,11 @@ jobs:
         cd infra  # Navigate to your CDK project directory
         npm run test || exit 1  # Run the test script defined in package.json
 
+    - name: Synthesize CDK Infrastructure
+      run: |
+        cd infra  # Navigate to your CDK project directory
+        npx cdk synth
+
     - name: Deploy CDK Infrastructure
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
